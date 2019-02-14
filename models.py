@@ -20,6 +20,6 @@ class User(db.Model):
         return {
             'id': self.id, 
             'firstName': self.firstName,
-            'author': self.secondName,
+            'secondName': self.secondName,
             'eMail ':self.eMail 
         }
