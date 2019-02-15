@@ -12,10 +12,10 @@ The App show you interesting statistics related to Bitcoin.
 ### Installation of PostgreSQL as DATABASE
 1. Install [PostgreSQL](https://www.postgresql.org). PostgreSQL is required for deploying to [Heroku](https://www.heroku.com)
 2. Install a GUI like [Postico](https://eggerapps.at/postico/) for interaction with database without command line.
-3. Check if Heroku it installed with: ```heroku --version````
+3. Check if Heroku it installed with: ```heroku --version```
 4. Create an account on Heroku's website
 5. After account creation, run in Terminal: ```heroku login```
-6. Create database directly in the Postico app or with: ```sudo -u name_of_user createdb bitcoinstats````
+6. Create database directly in the Postico app or with: ```sudo -u name_of_user createdb bitcoinstats```
 
 ### Make Code running locally
 1. Download repository
@@ -50,7 +50,18 @@ Done! Next you will find an example for testing.
 4. Open your database with Postico and check if data is there. You should find: *test, test, test@test.com*
 
 ### Deploy to Heroku
-TBD
+The App is already deployed on Heroku. Following you will finde the work flow how I did that.
+
+1. ```pip install gunicorn```
+2. Create new App on Heroku: ```heroku create bitcoinstatistics```
+3. Add git remote link to our local git repository. Name our remote as *prod* for the meaning of production: ```git remote add prod https://git.heroku.com/bitcoinstatistics.git```
+4. ```heroku config:set APP_SETTINGS=config.ProductionConfig --remote prod```
+5. ```heroku addons:create heroku-postgresql:hobby-dev --app bitcoinstatistics```
+6. Check i everything is set correct:```heroku config --app bitcoinstatistics```. It should return “APP_SETTINGS” and “DATABASE_URL”
+7. ```git push prod master```
+8. ```heroku run python manage.py db upgrade --app bitcoinstatistics```
+9. On Heroku, you could connect the App with your GitHub account. You could set the master branch as default, and every push to GitHub master will automatically update Heroku.
+
 
 ## Credits
 * [Create a web application with Python, Flask, Postgres on Heroku](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
