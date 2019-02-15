@@ -34,9 +34,11 @@ def add_user():
 @app.route("/add/form",methods=['GET', 'POST'])
 def add_user_form():
     if request.method == 'POST':
-        firstName=request.args.get('firstName')
-        secondName=request.args.get('secondName')
-        eMail=request.args.get('eMail')
+        firstName=request.form.get('firstName')
+        secondName=request.form.get('secondName')
+        eMail=request.form.get('eMail')
+
+        print(firstName, secondName, eMail, end='\n')
         try:
             user=User(
                 firstName=firstName,
