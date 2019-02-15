@@ -4,14 +4,14 @@
 In development
 
 ## App description
-This is a Python Web App build with Flask and PostgreSQL as database. It is deployed on (Heroku)[https://www.heroku.com] and you could find it here (https://bitcoinstatistics.herokuapp.com)[https://bitcoinstatistics.herokuapp.com].
+This is a Python Web App build with Flask and PostgreSQL as database. It is deployed on [Heroku](https://www.heroku.com) and you could find it here [https://bitcoinstatistics.herokuapp.com](https://bitcoinstatistics.herokuapp.com).
 
 The App show you interesting statistics related to Bitcoin.
 
 ## Running code local on your Mac
 ### Installation of PostgreSQL as DATABASE
-1. Install (PostgreSQL)[https://www.postgresql.org]. PostgreSQL is required for deploying to (Heroku)[https://www.heroku.com]
-2. Install a GUI like (Postico)[https://eggerapps.at/postico/] for interaction with database without command line.
+1. Install [PostgreSQL](https://www.postgresql.org). PostgreSQL is required for deploying to [Heroku](https://www.heroku.com)
+2. Install a GUI like [Postico](https://eggerapps.at/postico/) for interaction with database without command line.
 3. Check if Heroku it installed with: ```heroku --version````
 4. Create an account on Heroku's website
 5. After account creation, run in Terminal: ```heroku login```
@@ -45,7 +45,7 @@ Done! Next you will find an example for testing.
 ```python manage.py runserver```
 2. In Terminal you will find the link from your local machine, lokks like:
 ```http://127.0.0.1:5000```
-3. Open that link in browser and test it with:
+3. Open that link in browser and test it with:   
 ``` http://127.0.0.1:5000/add?firstName=test&secondName=test&eMail=test@test.com``` 
 4. Open your database with Postico and check if data is there. You should find: *test, test, test@test.com*
 
@@ -53,7 +53,7 @@ Done! Next you will find an example for testing.
 TBD
 
 ## Credits
-* (Create a web application with Python, Flask, Postgres on Heroku)[https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc]
+* [Create a web application with Python, Flask, Postgres on Heroku](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
 
 ## Troubleshooting
 ### Error: Multiple apps in git remotes
