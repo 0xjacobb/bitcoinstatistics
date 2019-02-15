@@ -65,6 +65,7 @@ The App is already deployed on Heroku. Following you will finde the work flow ho
 
 ## Credits
 * [Create a web application with Python, Flask, Postgres on Heroku](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
+* [Flask by Example – Setting up Postgres, SQLAlchemy](https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)
 
 ## Troubleshooting
 ### Error: Multiple apps in git remotes
