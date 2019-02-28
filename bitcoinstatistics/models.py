@@ -1,4 +1,4 @@
-from app import db
+from bitcoinstatistics import db
 
 class User(db.Model):
     __tablename__ = 'users'
