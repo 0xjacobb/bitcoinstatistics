@@ -1,14 +1,7 @@
-import os
-from flask import Flask, request, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-
-app.config.from_object(os.environ['APP_SETTINGS'])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-from models import User
+from flask import request, jsonify, render_template, url_for, redirect
+from bitcoinstatistics.models import User
+from bitcoinstatistics import app
+from bitcoinstatistics import db
 
 @app.route("/")
 def hello():
@@ -60,6 +53,3 @@ def get_all():
         return  jsonify([e.serialize() for e in user])
     except Exception as e:
 	    return(str(e))
-
-if __name__ == '__main__':
-    app.run()
