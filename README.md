@@ -53,7 +53,7 @@ Done! Next you will find an example for testing.
 4. Open your database with Postico and check if data is there. You should find: *test, test, test@test.com*
 
 ### Deploy to Heroku
-The App is already deployed on Heroku. Following you will finde the work flow how I did that.
+The App is already deployed on Heroku. Following you will find the work flow how I did that. Note: Example below decribes the process of deploying to a production (prod) app called *bitcoinstatistics*. You could add a second staging app (stage) *bitcoinstatistics-stage* with a *stage* remote. For that change "prod" to "stage" or similiar word.
 
 1. ```pip install gunicorn```
 2. Create new App on Heroku: ```heroku create bitcoinstatistics```
