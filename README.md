@@ -39,7 +39,10 @@ in Terminal:
 Done! Next you will find an example for testing.
 
 ### Test example:
-**prerequisite**: Did every step from *'Make Code running locally'* and *'Installation of PostgreSQL as DATABASE'*
+**prerequisite**: 
+* Did every step from *'Make Code running locally'* 
+* Did every step from *'Installation of PostgreSQL as DATABASE'*
+* Start your DB with Postico on your Mac
 
 1. run following code in terminal:
 ```python manage.py runserver```
@@ -57,7 +60,7 @@ The App is already deployed on Heroku. Following you will finde the work flow ho
 3. Add git remote link to our local git repository. Name our remote as *prod* for the meaning of production: ```git remote add prod https://git.heroku.com/bitcoinstatistics.git```
 4. ```heroku config:set APP_SETTINGS=config.ProductionConfig --remote prod```
 5. ```heroku addons:create heroku-postgresql:hobby-dev --app bitcoinstatistics```
-6. Check i everything is set correct:```heroku config --app bitcoinstatistics```. It should return “APP_SETTINGS” and “DATABASE_URL”
+6. Check if everything is set correct:```heroku config --app bitcoinstatistics```. It should return “APP_SETTINGS” and “DATABASE_URL”
 7. ```git push prod master```
 8. ```heroku run python manage.py db upgrade --app bitcoinstatistics```
 9. On Heroku, you could connect the App with your GitHub account. You could set the master branch as default, and every push to GitHub master will automatically update Heroku.
