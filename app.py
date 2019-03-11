@@ -8,22 +8,35 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+colors = {
+    'background': '#FFFFFF',
+    'text': '#000000'
+}
+
 server = app.server
 
-app.layout = html.Div([
-    html.H2('Hello World'),
-    dcc.Dropdown(
-        id='dropdown',
-        options=[{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']],
-        value='LA'
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+    html.H1(
+        children='BITCOINSTATISTICS',
+        style={
+            'textAlign': 'center',
+            'color': colors['text']
+        }
     ),
-    html.Div(id='display-value')
-])
 
-@app.callback(dash.dependencies.Output('display-value', 'children'),
-              [dash.dependencies.Input('dropdown', 'value')])
-def display_value(value):
-    return 'You have selected "{}"'.format(value)
+    html.Div(children='A web application for interesting Bitcoin statistics', style={
+        'textAlign': 'center',
+        'color': colors['text']
+    }),
+
+    html.Div([
+        html.Img(
+            src='/assets/underConstruction.jpeg',
+            style={
+                'width': '20%'
+            })
+    ], style={'textAlign': 'center'})
+])
 
 if __name__ == '__main__':
     app.run_server(debug=True)
