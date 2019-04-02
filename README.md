@@ -4,9 +4,9 @@
 In development
 
 ## App description
-This is a Python Web App build with Flask and PostgreSQL as database. It is deployed on [Heroku](https://www.heroku.com) and you could find it here [https://bitcoinstatistics.herokuapp.com](https://bitcoinstatistics.herokuapp.com).
+This is a Python Dash Web App built with PostgreSQL as database. It is deployed on [Heroku](https://www.heroku.com) and you could find it here [https://bitcoinstatistics.herokuapp.com](https://bitcoinstatistics.herokuapp.com).
 
-The App show you interesting statistics related to Bitcoin.
+The App shows an indication how "hot" the term Bitcoin is based on tweets and google statistics. It display the "hotness factor" in a heatmeter based on 24h data.
 
 ## Running code local on your Mac
 ### Installation of PostgreSQL as DATABASE
@@ -46,14 +46,12 @@ Done! Next you will find an example for testing.
 
 1. run following code in terminal:
 ```python manage.py runserver```
-2. In Terminal you will find the link from your local machine, lokks like:
+2. In Terminal you will find the link from your local machine, looks like:
 ```http://127.0.0.1:5000```
-3. Open that link in browser and test it with:   
-``` http://127.0.0.1:5000/add?firstName=test&secondName=test&eMail=test@test.com``` 
-4. Open your database with Postico and check if data is there. You should find: *test, test, test@test.com*
+
 
 ### Deploy to Heroku
-The App is already deployed on Heroku. Following you will find the work flow how I did that. Note: Example below decribes the process of deploying to a production (prod) app called *bitcoinstatistics*. You could add a second staging app (stage) *bitcoinstatistics-stage* with a *stage* remote. For that change "prod" to "stage" or similiar word.
+The App is already deployed on Heroku. Following you find the work flow how I did that. Note: Example below decribes the process of deploying to a production (prod) app called *bitcoinstatistics*. You could add a second staging app (stage) *bitcoinstatistics-stage* with a *stage* remote. For that change "prod" to "stage" or similiar word.
 
 1. ```pip install gunicorn```
 2. Create new App on Heroku: ```heroku create bitcoinstatistics```
@@ -68,7 +66,14 @@ The App is already deployed on Heroku. Following you will find the work flow how
 
 ## Credits
 * [Create a web application with Python, Flask, Postgres on Heroku](https://medium.com/@dushan14/create-a-web-application-with-python-flask-postgresql-and-deploy-on-heroku-243d548335cc)
-* [Flask by Example – Setting up Postgres, SQLAlchemy](https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)
+* [Flask by Example – Setting up Postgres, SQLAlchemy](https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/)   
+* [DASH Tutorial](https://dash.plot.ly/)
+* [Twitter Developer Documentation](https://developer.twitter.com/#)   
+* [Tweepy Documentation](http://docs.tweepy.org/en/v3.4.0/index.html)   
+* [Article Tweepy and Twitter from PirateFache](https://piratefache.ch/display-real-time-tweets-on-a-map-with-basemap-and-tweepy/)   
+* [YouTube Tutorial by LucidProgramming](https://www.youtube.com/watch?v=wlnx-7cm4Gg)   
+* [Capturing Tweets from Twitter's Streaming Endpoints](https://iseverythingstilltheworst.com/blog/2016/05/28/capturing_twitter_streams/)
+
 
 ## Troubleshooting
 ### Error: Multiple apps in git remotes
