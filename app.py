@@ -20,6 +20,7 @@ data = (
 ),
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+app.scripts.config.serve_locally = True
 
 colors = {
     'background': '#FFFFFF',
