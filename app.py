@@ -20,6 +20,7 @@ data = (
 ),
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+# needed because of Heroku deployement https://github.com/plotly/dash-daq/issues/25
 app.scripts.config.serve_locally = True
 
 colors = {
