@@ -24,7 +24,7 @@ The App shows an indication how "hot" the term Bitcoin is based on tweets and go
 in Terminal:
 
 3. ```virtualenv env```
-4. ```source env/bin/activate```
+4. For macOS: ```source env/bin/activate``` for Win: Copy in CMD:```"<PATH TO PROJECT>\env\Scripts\activate.bat"``` 
 5. ```pip install Flask```
 6. ```pip install flask_sqlalchemy```
 7. ```pip install flask_script```
