@@ -8,8 +8,10 @@ import dash_daq as daq
 import pandas as pd
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+'''
 df = pd.read_csv(
     'https://raw.githubusercontent.com/plotly/datasets/master/solar.csv')
+    '''
 
 data = (
     [

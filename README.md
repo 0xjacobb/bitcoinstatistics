@@ -25,7 +25,7 @@ in Terminal:
 
 3. ```virtualenv env```
 4. For macOS: ```source env/bin/activate``` for Win: Copy in CMD:```"<PATH TO PROJECT>\env\Scripts\activate.bat"``` 
-5. ```pip install Flask```
+5. ```pip install dash```
 6. ```pip install flask_sqlalchemy```
 7. ```pip install flask_script```
 8. ```pip install flask_migrate```
