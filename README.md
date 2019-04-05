@@ -18,43 +18,28 @@ The App shows an indication how "hot" the term Bitcoin is based on tweets and go
 6. Create database directly in the Postico app or with: ```sudo -u name_of_user createdb bitcoinstats```
 
 ### Make Code running locally
-1. Download repository
+1. Clone/ download repository
 2. cd into project folder
 
-in Terminal:
+in Terminal/ CMD:
 
-3. ```virtualenv env```
-4. For macOS: ```source env/bin/activate``` for Win: Copy in CMD:```"<PATH TO PROJECT>\env\Scripts\activate.bat"``` 
-5. ```pip install dash```
-6. ```pip install flask_sqlalchemy```
-7. ```pip install flask_script```
-8. ```pip install flask_migrate```
-9. ```pip install psycopg2-binary```
-10. ```export APP_SETTINGS="config.DevelopmentConfig"```
-11. ```export DATABASE_URL="postgresql://localhost/bitcoinstatistics"```
-12. ```python manage.py db init```
-13. ```python manage.py db migrate```
-14. ```python manage.py db upgrade```
-
-Done! Next you will find an example for testing.
-
-### Test example:
-**prerequisite**: 
-* Did every step from *'Make Code running locally'* 
-* Did every step from *'Installation of PostgreSQL as DATABASE'*
-* Start your DB with Postico on your Mac
-
-1. run following code in terminal:
-```python manage.py runserver```
-2. In Terminal you will find the link from your local machine, looks like:
-```http://127.0.0.1:5000```
-
+3. ```pip install virtualenv```   
+4. Create virtual environment: ```virtualenv env```
+5. Activate virtual environment:   
+For macOS: ```source env/bin/activate```   
+For Win: Copy in CMD:```"<PATH TO PROJECT>\env\Scripts\activate.bat"``` 
+6. Intall dependencies:   
+For macOS: ```pip3 install -r requirements.txt```   
+For Win: ```pip install -r requirements.txt```   
+7. Run app locally:
+For macOS: ```python3 app.py```   
+For Win: ```python app.py```
 
 ### Deploy to Heroku
 The App is already deployed on Heroku. Following you find the work flow how I did that. Note: Example below decribes the process of deploying to a production (prod) app called *bitcoinstatistics*. You could add a second staging app (stage) *bitcoinstatistics-stage* with a *stage* remote. For that change "prod" to "stage" or similiar word.
 
 1. ```pip install gunicorn```
-2. Create new App on Heroku: ```heroku create bitcoinstatistics```
+2. Create new App on Heroku: ```heroku create <APP NAME (eg bitcoinstatistics)>```
 3. Add git remote link to our local git repository. Name our remote as *prod* for the meaning of production: ```git remote add prod https://git.heroku.com/bitcoinstatistics.git```
 4. ```heroku config:set APP_SETTINGS=config.ProductionConfig --remote prod```
 5. ```heroku addons:create heroku-postgresql:hobby-dev --app bitcoinstatistics```
