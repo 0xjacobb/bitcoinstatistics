@@ -6,6 +6,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_daq as daq
 import pandas as pd
+from dash.dependencies import Input, Output
+
+import twitter_streamer
 
 df = pd.read_csv('data.csv')
 
@@ -28,22 +31,25 @@ app.layout = html.Div([
     ], className='row', style={'textAlign': 'center'}),
 
     html.Div([
-        html.Label('How interesting is Bitcoin to the world?'), 
+        html.Label('How interesting is Bitcoin to the world?'),
     ], style={'textAlign': 'center'}),
+
+    dcc.Interval(
+        id='interval-component',
+        interval=1*10000,  # in milliseconds
+        n_intervals=0
+    ),
 
     # https://dash.plot.ly/dash-daq/gauge
     html.Div([
         daq.Gauge(
             id='bitcoin-gauge-chart',
-            color={"gradient": True, "ranges": {
-                "green": [0, 6], "yellow":[6, 8], "red":[8, 10]}},
-            size=300,
-            label="",
-            showCurrentValue=True,
-            units="MPH",
-            value=5,
+            value=2,
             max=10,
             min=0,
+            units="MPH",
+            color={"gradient": True, "ranges": {
+                "green": [0, 6], "yellow": [6, 8], "red": [8, 10]}},
         )
     ], className='row', style={'textAlign': 'center'}),
 
@@ -58,7 +64,7 @@ app.layout = html.Div([
             data=df.to_dict("rows"),
             style_header={
                 'backgroundColor': colors['background_dark'],
-                'fontWeight' : 'bold'
+                'fontWeight': 'bold'
             },
             style_cell={
                 'backgroundColor': colors['background'],
@@ -83,6 +89,28 @@ app.layout = html.Div([
     ], className='row', style={'textAlign': 'center'}),
 
 ], style={'backgroundColor': colors['background'], 'color': colors['text']})
+
+# takes value from id='test_input' and return the value in value of id='bitcoin-gauge-chart'
+
+
+@app.callback([
+    Output('bitcoin-gauge-chart', 'value'),
+    Output('bitcoin-gauge-chart', 'max'),
+    Output('bitcoin-gauge-chart', 'color'),
+],  [Input('interval-component', 'n_intervals'), ]
+)
+def update_gauge(n_intervals):
+    print(twitter_streamer.TwitterListener.get_tweet_counter)
+    max = 100
+    min = 0
+    value = 60
+    threshold_1 = max-round(max*0.6)
+    threshold_2 = max-round(max*0.3)
+
+    color = {"gradient": True, "ranges": {
+        "green": [min, threshold_1], "yellow": [threshold_1, threshold_2], "red": [threshold_2, max]}}
+    return value, max, color
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
