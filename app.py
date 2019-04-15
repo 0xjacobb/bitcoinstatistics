@@ -10,9 +10,15 @@ from dash.dependencies import Input, Output
 
 import twitter_streamer
 
+hash_tag_list = ["bitcoin", ]
+streamer = twitter_streamer.TwitterStreamer()
+streamer.stream_tweets(hash_tag_list)
+
+# reading data for statistic table
 df = pd.read_csv('data.csv')
 
 app = dash.Dash(__name__)
+
 # needed because of Heroku deployement https://github.com/plotly/dash-daq/issues/25
 app.scripts.config.serve_locally = True
 
@@ -91,8 +97,6 @@ app.layout = html.Div([
 ], style={'backgroundColor': colors['background'], 'color': colors['text']})
 
 # takes value from id='test_input' and return the value in value of id='bitcoin-gauge-chart'
-
-
 @app.callback([
     Output('bitcoin-gauge-chart', 'value'),
     Output('bitcoin-gauge-chart', 'max'),
@@ -100,10 +104,10 @@ app.layout = html.Div([
 ],  [Input('interval-component', 'n_intervals'), ]
 )
 def update_gauge(n_intervals):
-    print(twitter_streamer.TwitterListener.get_tweet_counter)
     max = 100
     min = 0
-    value = 60
+    value = twitter_streamer.get_number_of_tweets()
+    print("TWEETS: ", value)
     threshold_1 = max-round(max*0.6)
     threshold_2 = max-round(max*0.3)
 

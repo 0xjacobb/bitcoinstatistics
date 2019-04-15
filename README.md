@@ -57,7 +57,8 @@ The App is already deployed on Heroku. Following you find the work flow how I di
 * [Tweepy Documentation](http://docs.tweepy.org/en/v3.4.0/index.html)   
 * [Article Tweepy and Twitter from PirateFache](https://piratefache.ch/display-real-time-tweets-on-a-map-with-basemap-and-tweepy/)   
 * [YouTube Tutorial by LucidProgramming](https://www.youtube.com/watch?v=wlnx-7cm4Gg)   
-* [Capturing Tweets from Twitter's Streaming Endpoints](https://iseverythingstilltheworst.com/blog/2016/05/28/capturing_twitter_streams/)
+* [Capturing Tweets from Twitter's Streaming Endpoints](https://iseverythingstilltheworst.com/blog/2016/05/28/capturing_twitter_streams/)   
+* [pythonprogramming.net - twitter-stream-analysis](https://pythonprogramming.net/twitter-stream-sentiment-analysis-python/)
 
 
 ## Troubleshooting
