@@ -2,7 +2,7 @@ from pytrends.request import TrendReq
 
 
 def start():
-    print("GOOGLE MODULE STARTED")
+    print("... google module started")
     # Parameters for GOOGLE search
     kw_list = ["Bitcoin"]
     year_start = 2019

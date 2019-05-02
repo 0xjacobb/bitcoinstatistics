@@ -8,12 +8,6 @@ import dash_daq as daq
 import pandas as pd
 from dash.dependencies import Input, Output
 
-import twitter_streamer
-
-hash_tag_list = ["bitcoin", ]
-streamer = twitter_streamer.TwitterStreamer()
-twitter_streamer.stream_tweets(hash_tag_list)
-
 # reading data for statistic table
 df = pd.read_csv('data.csv')
 
@@ -106,7 +100,7 @@ app.layout = html.Div([
 def update_gauge(n_intervals):
     max = 100
     min = 0
-    value = twitter_streamer.get_number_of_tweets()
+    value = 50
     print("TWEETS: ", value)
     threshold_1 = max-round(max*0.6)
     threshold_2 = max-round(max*0.3)

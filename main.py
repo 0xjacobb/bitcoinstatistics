@@ -6,6 +6,8 @@ import google_trends
 
 
 def start_server(app, **kwargs):
+    print("APP/ SERVER STARTED")
+
     def run():
         app.run_server(**kwargs)
 
@@ -14,7 +16,23 @@ def start_server(app, **kwargs):
     server_process.start()
 
 
+def start_twitter():
+    p = multiprocessing.current_process()
+    print('STARTING Multiprocess:', p.name)
+    twitter_API.start()
+
+
+def start_google():
+    p = multiprocessing.current_process()
+    print('STARTING Multiprocess:', p.name)
+    google_trends.start()
+
+
 if __name__ == "__main__":
     start_server(app)
-    twitter_API.start()
-    google_trends.start()
+
+    twitter = multiprocessing.Process(name='Twitter', target=start_twitter)
+    google = multiprocessing.Process(name='Google', target=start_google)
+
+    twitter.start()
+    google.start()

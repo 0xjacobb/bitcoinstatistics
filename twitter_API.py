@@ -61,7 +61,7 @@ class TwitterAPI():
 
 
 def start():
-    print("TWITTER MODULE STARTED")
+    print("...twitter module starte")
     twitter_API = TwitterAPI()
     twitter_API.call_twitter_API()
     twitter_API.normalization()
