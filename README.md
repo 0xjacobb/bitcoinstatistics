@@ -4,9 +4,14 @@
 In development
 
 ## App description
-This is a Python Dash Web App built with PostgreSQL as database. It is deployed on [Heroku](https://www.heroku.com) and you could find it here [https://bitcoinstatistics.herokuapp.com](https://bitcoinstatistics.herokuapp.com).
+The App shows an indication how "hot" the term Bitcoin is predicated on tweets and google interests statistics. It display the "hotness factor" in a heat meter based on 24h data. It pulls every 24h new data for the past day automatically and store it a database. The provided data from Twitter and Google are not very accurate, but for a "general feeling" about the market it should be good enough. 
 
-The App shows an indication how "hot" the term Bitcoin is based on tweets and google statistics. It display the "hotness factor" in a heatmeter based on 24h data.
+* For Twitter the free API subscription is used, therefore limitted data access   
+* For Google Trends the pseudo API "pytrends" is used, because Google does not provide a free API for Google Trends
+
+It is a Python Dash Web App built with PostgreSQL as database. It is deployed on [Heroku](https://www.heroku.com) and you could find it here [https://bitcoinstatistics.herokuapp.com](https://bitcoinstatistics.herokuapp.com).
+
+
 
 ## Running code local on your Mac
 ### Installation of PostgreSQL as DATABASE
@@ -58,7 +63,9 @@ The App is already deployed on Heroku. Following you find the work flow how I di
 * [Article Tweepy and Twitter from PirateFache](https://piratefache.ch/display-real-time-tweets-on-a-map-with-basemap-and-tweepy/)   
 * [YouTube Tutorial by LucidProgramming](https://www.youtube.com/watch?v=wlnx-7cm4Gg)   
 * [Capturing Tweets from Twitter's Streaming Endpoints](https://iseverythingstilltheworst.com/blog/2016/05/28/capturing_twitter_streams/)   
-* [pythonprogramming.net - twitter-stream-analysis](https://pythonprogramming.net/twitter-stream-sentiment-analysis-python/)
+* [pythonprogramming.net - twitter-stream-analysis](https://pythonprogramming.net/twitter-stream-sentiment-analysis-python/)   
+* [Get and Work With Twitter Data in Python Using Tweepy](https://www.earthdatascience.org/courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/)   
+* [Pseudo API for Google Trends ](https://github.com/GeneralMills/pytrends#interest-over-time)
 
 
 ## Troubleshooting

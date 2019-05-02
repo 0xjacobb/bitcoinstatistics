@@ -1,6 +1,9 @@
 # Credentials
 twitter_credentials.py
 
+# Project specific
+google_results.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

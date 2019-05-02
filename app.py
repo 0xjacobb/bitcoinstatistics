@@ -12,7 +12,7 @@ import twitter_streamer
 
 hash_tag_list = ["bitcoin", ]
 streamer = twitter_streamer.TwitterStreamer()
-streamer.stream_tweets(hash_tag_list)
+twitter_streamer.stream_tweets(hash_tag_list)
 
 # reading data for statistic table
 df = pd.read_csv('data.csv')
