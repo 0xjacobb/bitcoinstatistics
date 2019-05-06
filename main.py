@@ -4,6 +4,9 @@ import multiprocessing
 import twitter_API
 import google_trends
 
+search_words = "#bitcoin"
+start_date = "2019-04-29"
+
 
 def start_server(app, **kwargs):
     print("APP/ SERVER STARTED")
@@ -34,5 +37,5 @@ if __name__ == "__main__":
     twitter = multiprocessing.Process(name='Twitter', target=start_twitter)
     google = multiprocessing.Process(name='Google', target=start_google)
 
-    twitter.start()
-    google.start()
+    twitter.start(search_words, start_date)
+    google.start(search_words, start_date)

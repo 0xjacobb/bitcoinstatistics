@@ -1,18 +1,25 @@
 from pytrends.request import TrendReq
+import datetime
 
 
-def start():
+def start(search_words, start_date):
     print("... google module started")
+    now = datetime.datetime.now()
+
     # Parameters for GOOGLE search
-    kw_list = ["Bitcoin"]
-    year_start = 2019
-    month_start = 1
-    day_start = 1
+    kw_list = [search_words]
+    year_start = int(start_date[:4])
+    month_start = int(start_date[5:7])
+    day_start = int(start_date[8:10])
     hour_start = 0
-    year_end = 2019
-    month_end = 5
-    day_end = 2
+    print(kw_list, " ", year_start, " ", month_start, " ", day_start)
+
+    # setting actual date for goggle search endpoint
+    year_end = now.year
+    month_end = now.month
+    day_end = now.day
     hour_end = 0
+    print(year_end, " ", month_end, " ", day_end)
 
     pytrend = TrendReq()
     pytrend.build_payload(kw_list)
@@ -28,4 +35,6 @@ def start():
 
 
 if __name__ == "__main__":
-    start()
+    search_words = "#bitcoin"
+    start_date = "2019-04-29"
+    start(search_words, start_date)

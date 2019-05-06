@@ -13,20 +13,19 @@ class TwitterAuthenticator():
 
 # TWITTER STREAMER Class for streaming and processing tweets
 class TwitterAPI():
-    def __init__(self):
+    def __init__(self, search_words, date):
         self.twitter_authenticator = TwitterAuthenticator()
         self.tweet_count = 0
+        self.twitter_words = search_words
+        self.date_since = date
 
         # This method handles Twitter authentication and the connection to the twitter API
     def call_twitter_API(self):
         auth = self.twitter_authenticator.authenticate_twitter_app()
         api = tweepy.API(auth, wait_on_rate_limit=True)
 
-        search_words = "#bitcoin"
-        date_since = "2019-04-29"
-
-        tweets = tweepy.Cursor(api.search, q=search_words,
-                               since=date_since).items(10000)
+        tweets = tweepy.Cursor(api.search, q=self.twitter_words,
+                               since=self.date_since).items(10000)
 
         '''
         d = vars(tweets)
@@ -60,12 +59,14 @@ class TwitterAPI():
         print(status_code)
 
 
-def start():
+def start(search_words, start_date):
     print("...twitter module starte")
-    twitter_API = TwitterAPI()
+    twitter_API = TwitterAPI(search_words, start_date)
     twitter_API.call_twitter_API()
     twitter_API.normalization()
 
 
 if __name__ == "__main__":
-    start()
+    search_words = "#bitcoin"
+    start_date = "2019-04-29"
+    start(search_words, start_date)
